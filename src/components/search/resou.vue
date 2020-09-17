@@ -4,7 +4,7 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-15 16:59:10
+ * @LastEditTime: 2020-09-16 21:34:16
 -->
 <template>
   <div class="box">
@@ -16,30 +16,10 @@
           <img class="Oimg" :src="hot.bgc" alt="" srcset="">
         </div>
         <div class="cont">
-          <p class="sname">{{hot.name}}</p><span class="remen">热门</span>
-          <p class="jianj">{{hot.jianjie}}</p>
+          <p class="sname">{{hot.b_name}}</p><span class="remen">热门</span>
+          <p class="jianj">{{hot.b_content}}</p>
         </div>
       </li>
-      <!-- <li class="Oli" v-for="(hot,index) in hots" :key="index">
-        <i class="xuhao">1</i>
-        <div class="imgBox">
-          <img class="Oimg" src="../../../static/imgs/sj1.jpg" alt="" srcset="">
-        </div>
-        <div class="cont">
-          <p class="sname">最佳豪婿</p><span class="remen">热门</span>
-          <p class="jianj">别人都以为他是窝囊废上门女婿，却不但是你打</p>
-        </div>
-      </li>
-      <li class="Oli" v-for="(hot,index) in hots" :key="index">
-        <i class="xuhao">1</i>
-        <div class="imgBox">
-          <img class="Oimg" src="../../../static/imgs/sj1.jpg" alt="" srcset="">
-        </div>
-        <div class="cont">
-          <p class="sname">最佳豪婿</p><span class="remen">热门</span>
-          <p class="jianj">别人都以为他是窝囊废上门女婿，却不但是你打</p>
-        </div>
-      </li> -->
     </ul>
   </div>
 </template>
@@ -54,9 +34,12 @@ export default {
   },
   created(){
     this.$axios
+    // .get("/api/books/all")
     .get("http://localhost:3000/hot")
     .then((res)=>{
-      console.log(res.data);
+      // console.log(res.data.data);
+      // this.hots = res.data.data
+      // console.log(res);
       this.hots = res.data
     })
     .catch((err)=>{

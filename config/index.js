@@ -4,7 +4,7 @@
  * @Author: 范钊
  * @Date: 2020-09-12 09:51:45
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-15 19:15:35
+ * @LastEditTime: 2020-09-16 21:26:24
  */
 'use strict'
 // Template version: 1.3.1
@@ -16,15 +16,17 @@ module.exports = {
   dev: {
 
     // Paths
-    assetsSubDirectory: 'static',
+    assetsSubDirectory:'static',
     assetsPublicPath: '/',
-    proxyTable: {
+    proxyTable:{
       '/api': {
-        // target: 'http://localhost:3000',
+        // target: 'http://10.12.155.174:8080',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
         }
+      } 
     },
 
     // Various Dev Server settings

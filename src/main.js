@@ -4,7 +4,7 @@
  * @Author: 范钊
  * @Date: 2020-09-12 09:56:09
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-14 20:34:51
+ * @LastEditTime: 2020-09-17 20:26:32
  */
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
@@ -20,13 +20,17 @@ import "./assets/font/iconfont.css"
 import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
-
+//引入vueX
+// import Vuex from 'vuex' 
+// import store from './store/store' 
+// Vue.use(Vuex)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  // store,
   components: { App },
   template: '<App/>'
 })

@@ -4,11 +4,11 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:59
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-15 21:02:31
+ * @LastEditTime: 2020-09-17 14:39:56
 -->
 <template>
   <div class="box">
-    <searchtop @fun="test"></searchtop>
+    <searchtop></searchtop>
     <historical></historical>
     <resou></resou>
   </div>
@@ -22,7 +22,7 @@ export default {
   name:"search",
   data(){
     return{
-      guanjianzi:""
+      content:"",
     }
   },
   components:{
@@ -30,11 +30,11 @@ export default {
     historical,
     resou
   },
+  created(){
+    
+  },
   methods:{
-    test(data){
-      this.guanjianzi=data;
-      console.log(this.guanjianzi);
-    }
+   
   }
 }
 </script>

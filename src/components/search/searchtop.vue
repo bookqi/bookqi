@@ -4,35 +4,43 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-15 21:30:38
+ * @LastEditTime: 2020-09-17 20:18:22
 -->
 <template>
   <div class="box">
     <div class="searchBox">
-      <input type="search" :value="valuetext" :placeholder="searchtext">&nbsp;
-      <span @click="quxiao">取消</span>
+      <input type="search" v-model="valuetext" :placeholder="searchtext">&nbsp;
+      <router-link tag="span" to="/sjbook">取消</router-link>
       <span @click="sousuo" class="iconfont icon-sousuo"></span>
     </div>
   </div>
 </template>
 <script>
 export default {
+  props:["sousuocon"],
   name:"searchtop",
   data(){
     return{
       valuetext:'',
-      searchtext:"文字"
+      searchtext:"请输入搜索内容",
     }
   },
   methods:{
     sousuo(){
-      this.$emit("fun",this.valuetext);
-      this.$router.push("/searchtop")
-    },
-    quxiao(){
-      this.$router.go(-1)
+      // dispatch()是派发action。
+      // this.$store.dispatch("incAge",this.valuetext);
+      // this.$store.commit("incAge",this.valuetext)
+      this.$router.push({
+        path:"searchresult",
+        query:{
+          value:this.valuetext,
+        }
+      })
     }
   },
+  created(){
+    this.valuetext=this.sousuocon
+  }
 }
 </script>
 

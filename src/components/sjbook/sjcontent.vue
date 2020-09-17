@@ -4,7 +4,7 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-15 19:17:01
+ * @LastEditTime: 2020-09-16 19:59:15
 -->
 <template>
   <div class="box">
@@ -13,8 +13,8 @@
         <div class="bgc" :style="{backgroundImage:'url(' + book.bgc+ ')'}">
           <!-- <p class="tuijian">推荐</p> -->
         </div>
-        <p class="bookName">{{book.name}}</p>
-        <p class="jindu">{{book.speedProgress}}</p>
+        <p class="bookName">{{book.b_name}}</p>
+        <p class="jindu">完结</p>
       </li>
       <div class="addsj">+</div>
     </ul>
@@ -32,11 +32,12 @@ export default {
    
   },
   created(){
-    this.$axios.get("http://localhost:3000/bookshelf")
-    // this.$axios.get("/api/bookshelf")
+    this.$axios
+    // .get("http://10.12.155.174:8080/books/all")
+    .get("/api/books/all")
     .then((res)=>{
-      console.log(res.data);
-      this.books=res.data;
+      console.log(res.data.data);
+      this.books=res.data.data;
     })
     .catch((err)=>{
       console.log(err)

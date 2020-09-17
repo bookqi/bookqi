@@ -4,7 +4,7 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-15 14:45:52
+ * @LastEditTime: 2020-09-17 14:10:28
 -->
 <template>
   <div class="box">
@@ -13,22 +13,35 @@
       <i @click="clear">清空</i>
     </p>
     <ul class="Oul">
-      <li class="Oli" v-for="(Record,index) in Records" :key="index">{{Record}}</li>
+      <li class="Oli" @click="fun(index)" v-for="(Record,index) in Records" :key="index">{{Record}}</li>
     </ul>
   </div>
 </template>
 <script>
 export default {
   name:"historical",
+  props:["datavalue"],
   data(){
     return{
-      Records:["三点水","代码是你的","大梅沙你到哪","打算看你","没到","hello"]
+      Records:["三点水","代码是你的","大梅沙你到哪","打算看你","没到","抬龙棺"]
     }
   },
   methods:{
     clear(){
       this.Records="";
+    },
+    fun(index){
+      // console.log(this.Records[index])
+      this.$router.push({
+        path:"searchresult",
+        query:{
+          valuelishi:this.Records[index],
+      }})
     }
+  },
+  created(){
+    console.log("hsit接到的值",this.datavalue)
+    // this.Records.push(this.value)
   }
 }
 </script>
