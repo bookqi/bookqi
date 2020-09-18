@@ -4,22 +4,22 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-16 21:34:16
+ * @LastEditTime: 2020-09-18 07:22:18
 -->
 <template>
   <div class="box">
     <p class="rssj">热搜书籍</p>
     <ul class="Oul">
-      <li class="Oli" v-for="(hot,index) in hots" :key="index">
-        <i class="xuhao">{{hot.xuhao}}</i>
-        <div class="imgBox">
-          <img class="Oimg" :src="hot.bgc" alt="" srcset="">
-        </div>
-        <div class="cont">
-          <p class="sname">{{hot.b_name}}</p><span class="remen">热门</span>
-          <p class="jianj">{{hot.b_content}}</p>
-        </div>
-      </li>
+      <router-link tag="li" class="Oli" v-for="(hot,index) in hots" :key="index" :to="'/Xiangqing/'+hot.b_id">
+          <i class="xuhao">{{hot.b_id}}</i>
+          <div class="imgBox">
+            <img class="Oimg" :src="hot.b_picture" alt="" srcset="">
+          </div>
+          <div class="cont">
+            <p class="sname">{{hot.b_name}}</p><span class="remen">热门</span>
+            <p class="jianj">{{hot.b_content}}</p>
+          </div>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -34,13 +34,13 @@ export default {
   },
   created(){
     this.$axios
-    // .get("/api/books/all")
-    .get("http://localhost:3000/hot")
+    .get("/api/books/all")
     .then((res)=>{
-      // console.log(res.data.data);
-      // this.hots = res.data.data
-      // console.log(res);
-      this.hots = res.data
+      res.data.data.forEach((item,index)=>{
+        if(index<4){
+          this.hots.push(item);
+        }
+      })
     })
     .catch((err)=>{
       console.log(err);

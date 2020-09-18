@@ -4,7 +4,7 @@
  * @Author: 范钊
  * @Date: 2020-09-12 09:56:09
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-17 20:26:32
+ * @LastEditTime: 2020-09-18 02:08:41
  */
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
@@ -15,7 +15,8 @@ import router from './router'
 import axios from "axios";
 Vue.prototype.$axios = axios;
 //阿里小图标
-import "./assets/font/iconfont.css"
+import "./assets/ifont/iconfont.css"
+import '../src/assets/font3/iconfont.css'
 //引入vant
 import Vant from 'vant';
 import 'vant/lib/index.css';

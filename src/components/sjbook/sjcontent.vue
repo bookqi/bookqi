@@ -4,19 +4,19 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-16 19:59:15
+ * @LastEditTime: 2020-09-18 04:10:17
 -->
 <template>
   <div class="box">
     <ul class="Oul">
-      <li v-for="(book,index) in books" :key="index">
-        <div class="bgc" :style="{backgroundImage:'url(' + book.bgc+ ')'}">
+        <router-link tag="li" class="Oli" :to="'/Xiangqing/'+book.b_id" v-for="(book,index) in books" :key="index">
+        <div class="bgc" :style="{backgroundImage:'url(' + book.b_picture+ ')'}">
           <!-- <p class="tuijian">推荐</p> -->
         </div>
         <p class="bookName">{{book.b_name}}</p>
-        <p class="jindu">完结</p>
-      </li>
-      <div class="addsj">+</div>
+        <p class="jindu">{{book.b_schedule}}</p>
+      </router-link>
+      <router-link class="addsj" :to="'/faxians/'+'4'" tag="div">+</router-link>
     </ul>
   </div>
 </template>

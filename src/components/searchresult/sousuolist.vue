@@ -4,26 +4,28 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-17 14:22:44
+ * @LastEditTime: 2020-09-18 03:59:31
 -->
 <template>
   <div class="box">
     <ul class="Oul">
-      <li class="Oli" v-for="(sourelut,index) in soureluts" :key="index">
-        <div class="imgBox">
-          <img :src="sourelut">
+      <router-link tag="li" class="Oli" :to="'/Xiangqing/'+sourelut.b_id"  v-for="(sourelut,index) in soureluts" :key="index">
+       <div class="imgBox">
+          <img :src="sourelut.b_picture">
         </div>
         <div class="xinxi">
           <p class="name">{{sourelut.b_name}}</p>
           <p class="zuozhe">{{sourelut.b_author}}</p>
           <div class="jianjie">{{sourelut.b_content}}</div>
           <div class="biaoqian">
-            <span class="lianzai">&nbsp;连载&nbsp;</span>
-            <span class="lianzai">&nbsp;401万&nbsp;</span>
-            <span class="lianzai">&nbsp;现代言情&nbsp;</span>
+            <span class="lianzai">&nbsp;{{sourelut.b_schedule}}&nbsp;</span>
+            <span class="lianzai">&nbsp;{{sourelut.b_read}}&nbsp;</span>
           </div>
         </div>
-      </li>
+      </router-link>
+      <!-- <li class="Oli" v-for="(sourelut,index) in soureluts" :key="index" @click="fun(index)">
+       
+      </li> -->
     </ul>
   </div>
 </template>
@@ -39,25 +41,23 @@ export default {
   created(){
     console.log(this.valuedata)
     this.$axios
-    .get("http://localhost:3000/sousuo",{
+    .get("/api/books/all2",{
       params:{
-        "name":this.valuedata,
-        "name":this.valuelishi
+        b_name:this.valuedata
       }
     })
-    // .get("/api/books/all2",{
-    //   params:{
-    //     b_name:this.valuedata,
-    //     b_name:this.valuelishi
-    //   }
-    // })
     .then((res)=>{
-      // console.log(res.data.data);
+      console.log(res.data.data);
       this.soureluts= res.data.data;
     })
     .catch((err)=>{
       console.log(err);
     })
+  },
+  methods:{
+    fun(index){
+      console.log(index)
+    }
   }
 }
 </script>

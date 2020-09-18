@@ -4,13 +4,15 @@
  * @Author: 范钊
  * @Date: 2020-09-12 10:05:41
  * @LastEditors: 范钊
- * @LastEditTime: 2020-09-14 15:21:07
+ * @LastEditTime: 2020-09-18 02:33:16
 -->
 <template>
   <div class="box">
     <div class="boxtop">
       <span class="spantext">让阅读成为习惯</span>
-      <span class="iconfont icon-sousuo"></span>
+      <router-link to="/search">
+        <span class="iconfont icon-sousuo"></span>
+      </router-link>
       <span class="iconfont icon-19" @click="gengduo"></span>
     </div>
    <ul class="more" v-show="isShow">
@@ -79,6 +81,7 @@ export default {
     top: 0.35rem;
     background:white;
     font-size: 0.15rem;
+    z-index: 100;
   }
   .more li{
     height: 0.5rem;
