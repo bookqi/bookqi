@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # booksqi
+=======
+# bookqis
+>>>>>>> leiyuting
 
 > A Vue.js project
 

@@ -15,9 +15,15 @@ module.exports = {
         target: 'http://192.168.3.80:8080',
         changeOrigin: true,
         pathRewrite: {
+<<<<<<< HEAD
           '^/api': ''
         }
       }
+=======
+          '^/api': ''
+        }
+        }
+>>>>>>> leiyuting
     },
 
     // Various Dev Server settings
@@ -28,7 +34,11 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> leiyuting
     /**
      * Source Maps
      */
