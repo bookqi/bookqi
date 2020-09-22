@@ -13,6 +13,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "swiper": "^4.0.2",
+    "vant": "^2.10.7",
     "vue": "^2.5.2",
     "vue-router": "^3.4.3"
   },
